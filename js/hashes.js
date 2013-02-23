@@ -293,7 +293,7 @@ var finished = function () {
     return subdivFinished && tractFinished;
 }
 
-
+var index = 0;
 var entireDataSet = [];
 var baseURL = "http://api.census.gov/data/2011/acs5?key=76ed37dffda422d9b83fd9d277827451fb4ef1cc&get=B25058_001E,B25064_001E,B25077_001E,B07011_001E,B25010_001E,B25103_001E,B01002_001E,B23025_001E,B23025_003E,B23025_004E,B23025_005E";
 var subdivDataURL = baseURL + "&for=county+subdivision:*&in=state:42+county:003";
@@ -312,6 +312,7 @@ $.ajax({
                     }
                     propertyData[propertyName.toString()].push({ ID: dataIndex, Data: parseFloat(dataValue[propertyIndex]) });
                 });
+                index = dataIndex;
             }
         });
     }
@@ -327,12 +328,12 @@ $.ajax({
             if (dataIndex > 0) {
                 var tractNumber = dataValue[dataValue.length-1];
                 if (tractNames[parseInt(tractNumber)] != null) { // only add tracts that exist in the tractNames hash table
-                    entireDataSet[dataIndex] = dataValue; // populate main data structure
+                    entireDataSet[dataIndex + index] = dataValue; // populate main data structure
                     $.each(data[0], function (propertyIndex, propertyName) {
                         if (propertyData[propertyName.toString()] == null) {
                             propertyData[propertyName.toString()] = []; // create blank array to hold property data
                         }
-                        propertyData[propertyName.toString()].push({ ID: dataIndex, Data: parseFloat(dataValue[propertyIndex]) });
+                        propertyData[propertyName.toString()].push({ ID: dataIndex + index, Data: parseFloat(dataValue[propertyIndex]) });
                     });
                 }
             }
