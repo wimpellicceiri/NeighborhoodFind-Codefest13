@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    
+    <title>Pittsburgh Neighborhood Search</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+    <link href="css/smoothness/jquery-ui-1.10.1.custom.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+
+    <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+      <div class="hero-unit">
+        <h2>Pittsburgh Neighborhood Search</h2>
+        <p>Use this tool to filter neighborhoods using census data.</p>
+      </div>
+    
+      <div id="divFilters">
+        <h3>Filters</h3>
+        
+        <div id="filter1" class="row filter-row">          
+          <div class="span2">            
+            <span class="pull-right"><b>Price Range:</b></span>
+          </div>
+          
+          <div class="span3">
+            <span id="amount1" style="border: 0; color: #f6931f; font-weight: bold;" />
+          </div>
+          
+          <div class="span7">
+            <div id="slider1"></div>
+          </div>
+        </div>
+        
+        <div id="filter2" class="row filter-row">          
+          <div class="span2">            
+            <span class="pull-right"><b>Price Range:</b></span>
+          </div>
+          
+          <div class="span3">
+            <span id="amount2" style="border: 0; color: #f6931f; font-weight: bold;" />
+          </div>
+          
+          <div class="span7">
+            <div id="slider2"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="divSearchButton" class="row">
+        <div class="span4 offset4">
+          <button class="btn btn-primary btn-large btn-block" type="button">Search</button>
+        </div>
+      </div>
+    </div>
+    
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery-ui-1.10.1.custom.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
