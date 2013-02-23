@@ -22,9 +22,15 @@
       </div>
     
       <div id="divFilters">
-        <h3>Filters</h3>
+        <h3 class="header-centered">Neighborhood Filters</h3>
         
-        <div id="filter1" class="row filter-row">          
+        <hr />
+        
+        <div id="filter1" class="row">
+          <div class="span1">
+            <input type="checkbox" rel="tooltip" data-toggle="tooltip" data-original-title="Enable/disable this filter"></input>
+          </div>
+          
           <div class="span2">            
             <span class="pull-right"><b>Price Range:</b></span>
           </div>
@@ -33,12 +39,18 @@
             <span id="amount1" style="border: 0; color: #f6931f; font-weight: bold;" />
           </div>
           
-          <div class="span7">
+          <div class="span6">
             <div id="slider1"></div>
           </div>
         </div>
         
-        <div id="filter2" class="row filter-row">          
+        <hr />
+        
+        <div id="filter2" class="row">
+          <div class="span1">
+            <input type="checkbox" rel="tooltip" data-toggle="tooltip" data-original-title="Enable/disable this filter"></input>
+          </div>
+          
           <div class="span2">            
             <span class="pull-right"><b>Price Range:</b></span>
           </div>
@@ -47,10 +59,55 @@
             <span id="amount2" style="border: 0; color: #f6931f; font-weight: bold;" />
           </div>
           
-          <div class="span7">
+          <div class="span6">
             <div id="slider2"></div>
           </div>
         </div>
+        
+        <hr />
+        
+        <div id="filter3" class="row">
+          <div class="span1">
+            <input type="checkbox" rel="tooltip" data-toggle="tooltip" data-original-title="Enable/disable this filter"></input>
+          </div>
+          
+          <div class="span2">
+            <span class="pull-right"><b>Address:</b></span>
+          </div>
+          
+          <div class="span3">
+            <input id="txtAddress" type="text" placeholder="Enter Address..." class="span3">
+          </div>
+          
+          <div class="span6">
+            <div class="btn-group">
+              <button class="btn address-button btn-success">Car</button>
+              <button class="btn address-button">Bus</button>
+              <button class="btn address-button">Bike</button>
+              <button class="btn address-button">Walk</button>
+            </div>
+          </div>
+        </div>
+        
+        <div id="filter4" class="row">
+          <div class="span2 offset1">
+            <span class="pull-right"><b>Max Distance:</b></span>
+          </div>
+          
+          <div class="span3">
+            <i class="icon-exclamation-sign" rel="tooltip" data-toggle="tooltip" data-original-title="This will filter your results by the time or distance from the entered address."></i>
+            <input class="pull-right" id="txtAddressMaxDistance" type="text" placeholder="Enter Distance...">
+          </div>
+          
+          <div class="span6">
+            <div class="btn-group">
+              <button class="btn address-button btn-success">Distance</button>
+              <button class="btn address-button">Time</button>
+            </div>
+          </div>
+        </div>
+        
+        <hr />
       </div>
       
       <div id="divSearchButton" class="row">

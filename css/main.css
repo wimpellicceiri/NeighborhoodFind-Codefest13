@@ -4,8 +4,12 @@
    Author's custom styles
    ========================================================================== */
 
-.filter-row{
-  padding-bottom: 15px;
+.header-centered{
+  text-align:center;
+}
+
+hr {
+  border-color: red;
 }
 
 

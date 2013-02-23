@@ -23,4 +23,10 @@ $(function(){
   });
   $( "#amount2" ).html( "$" + $( "#slider2" ).slider( "values", 0 ) +
     " - $" + $( "#slider2" ).slider( "values", 1 ) );
+    
+  $('.address-button').click(function() {
+    $(this).addClass("btn-success").siblings().removeClass("btn-success");
+  });
+  
+  $("[rel='tooltip']").tooltip();  
 });
