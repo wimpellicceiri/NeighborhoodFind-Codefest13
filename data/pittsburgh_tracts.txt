@@ -1,0 +1,137 @@
+010300 Bluff
+020100 Central Business District
+020300 Strip District
+030500 Crawford-Roberts
+040200 Terrace Village
+040400 North Oakland
+040500 Central Oakland
+040600 Central Oakland
+040900 South Oakland
+050100 Middle Hill
+050600 Upper Hill
+050900 Bedford Dwellings
+051000 Terrace Village
+051100 Terrace Village
+060300 Lower Lawrenceville
+060500 Polish Hill
+070300 Shadyside
+070500 Shadyside
+070600 Shadyside
+070800 Shadyside
+070900 Shadyside
+080200 Bloomfield
+080400 Bloomfield
+080600 Bloomfield
+080700 Friendship
+080900 Bloomfield
+090100 Central Lawrenceville
+090200 Central Lawrenceville
+090300 Bloomfield
+100500 Stanton Heights
+101100 Upper Lawrenceville
+101400 Morningside
+101600 Garfield
+101700 Garfield
+101800 Stanton Heights
+110200 Highland Park
+110600 Highland Park
+111300 East Liberty
+111400 Garfield
+111500 East Liberty
+120300 Lincoln-Lemington-Belmar
+120400 Larimer
+120700 Homewood West
+120800 Larimer
+130100 Homewood North
+130200 Homewood North
+130300 Homewood South
+130400 Homewood South
+130600 East Hills
+140100 Squirrel Hill North
+140200 Squirrel Hill North
+140300 Squirrel Hill North
+140400 Point Breeze
+140500 Point Breeze North
+140600 Point Breeze
+140800 Squirrel Hill South
+141000 Regent Square
+141100 Swisshelm Park
+141300 Squirrel Hill South
+141400 Squirrel Hill South
+151600 Greenfield
+151700 Greenfield
+160800 Southside Slopes
+160900 Southside Flats
+170200 Southside Flats
+170600 Southside Slopes
+180300 Allentown
+180700 Mount Washington
+190300 Mount Washington
+191100 Duquesne Heights
+191400 Mount Washington
+191500 Mount Washington
+191600 Beechview
+191700 Brookline
+191800 Brookline
+191900 Brookline
+192000 Beechview
+202200 Sheraden
+202300 Banksville
+210700 Manchester
+220600 Central Northside
+240600 Troy Hill
+241200 Spring Garden
+250300 Central Northside
+250700 California-Kirkbride
+250900 Fineview
+260200 Perry North
+260700 Perry North
+260900 Northview Heights
+261200 Summer Hill
+261400 Perry South
+261500 Perry South
+262000 Spring Hill-City View
+270100 Brighton Heights
+270300 Brighton Heights
+270400 Marshall-Shadeland
+270800 Brighton Heights
+271500 Marshall-Shadeland
+281400 Crafton Heights
+281500 Crafton Heights
+290100 Carrick
+290200 Carrick
+290400 Carrick
+300100 Knoxville
+310200 Lincoln Place
+310300 New Homestead
+320400 Overbrook
+320600 Brookline
+320700 Overbrook
+561600 Arlington
+561700 Mt. Oliver
+561900 Lincoln-Lemington-Belmar
+562000 North Oakland
+562300 Hazelwood
+562400 Beltzhoover
+562500 Esplen
+562600 Elliot
+562700 Allegheny Center
+562800 East Carnegie
+562900 Hays
+563000 Windgap
+563100 Westwood
+563200 North Shore
+980000 Lincoln-Lemington-Belmar
+980100 Highland Park
+980300 Squirrel Hill South
+980400 Perry North
+980500 Squirrel Hill South
+980600 Chateau
+980700 South Shore
+980800 South Oakland
+980900 Marshall-Shadeland
+981000 Central Lawrenceville
+981100 Point Breeze
+981200 North Shore
+981800 Lincoln-Lemington-Belmar
+982200 North Oakland
