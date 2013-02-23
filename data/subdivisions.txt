@@ -1,130 +1,130 @@
-00724 Aleppo township
-03320 Aspinwall borough
-03608 Avalon borough
-03928 Baldwin borough
-03932 Baldwin township
-05216 Bell Acres borough
-05312 Bellevue borough
-05504 Ben Avon borough
-05520 Ben Avon Heights borough
-06064 Bethel Park municipality
-07000 Blawnox borough
-07976 Brackenridge borough
-07992 Braddock borough
-08008 Braddock Hills borough
-08064 Bradford Woods borough
-08416 Brentwood borough
-08624 Bridgeville borough
-11336 Carnegie borough
-11680 Castle Shannon borough
-12496 Chalfant borough
-13392 Cheswick borough
-13608 Churchill borough
-13704 Clairton city
-15216 Collier township
-16144 Coraopolis borough
-16848 Crafton borough
-17048 Crescent township
-19576 Dormont borough
-19856 Dravosburg borough
-20432 Duquesne city
-21024 East Deer township
-21444 East McKeesport borough
-21712 East Pittsburgh borough
-22520 Edgewood borough
-22576 Edgeworth borough
-22992 Elizabeth borough
-23000 Elizabeth township
-23616 Emsworth borough
-24160 Etna borough
-25400 Fawn township
-25904 Findlay township
-26592 Forest Hills borough
-26896 Forward township
-27120 Fox Chapel borough
-27552 Franklin Park borough
-27608 Frazer township
-29432 Glassport borough
-29592 Glenfield borough
-29732 Glen Osborne borough
-31256 Green Tree borough
-32328 Hampton township
-32624 Harmar township
-32832 Harrison township
-33312 Haysville borough
-33592 Heidelberg borough
-35424 Homestead borough
-36808 Indiana township
-37000 Ingram borough
-37955 Jefferson Hills borough
-39312 Kennedy township
-39624 Kilbuck township
-42368 Leet township
-42392 Leetsdale borough
-43064 Liberty borough
-43408 Lincoln borough
-45900 McCandless township
-46072 McDonald borough
-46256 McKeesport city
-46264 McKees Rocks borough
-47696 Marshall township
-49920 Millvale borough
-50528 Monroeville municipality
-50784 Moon township
-51696 Mount Lebanon township
-51744 Mount Oliver borough
-52320 Munhall borough
-53136 Neville township
-54816 North Braddock borough
-55016 North Fayette township
-55488 North Versailles township
-55840 Oakdale borough
-56088 Oakmont borough
-56384 O'Hara township
-56392 Ohio township
-59032 Penn Hills township
-59152 Pennsbury Village borough
-60272 Pine township
-60712 Pitcairn borough
-61000 Pittsburgh city
-61328 Pleasant Hills borough
-61536 Plum borough
-62320 Port Vue borough
-63408 Rankin borough
-64240 Reserve township
-64528 Richland township
-65352 Robinson township
-66264 Ross township
-66320 Rosslyn Farms borough
-68388 Scott township
-69376 Sewickley borough
-69400 Sewickley Heights borough
-69416 Sewickley Hills borough
-69584 Shaler township
-69776 Sharpsburg borough
-72160 South Fayette township
-72400 South Park township
-72568 South Versailles township
-72960 Springdale borough
-72968 Springdale township
-74648 Stowe township
-75816 Swissvale borough
-76104 Tarentum borough
-76560 Thornburg borough
-77272 Trafford borough
-77912 Turtle Creek borough
-79274 Upper St. Clair township
-80032 Verona borough
-80040 Versailles borough
-80600 Wall borough
-82800 West Deer township
-82848 West Elizabeth borough
-83200 West Homestead borough
-83512 West Mifflin borough
-84144 West View borough
-84440 Whitaker borough
-84512 Whitehall borough
-84704 White Oak borough
-85184 Wilkins township
-85188 Wilkinsburg borough
-85496 Wilmerding borough
+ Aleppo township
+ Aspinwall
+ Avalon
+ Baldwin
+ Baldwin township
+ Bell Acres
+ Bellevue
+ Ben Avon
+ Ben Avon Heights
+ Bethel Park
+ Blawnox
+ Brackenridge
+ Braddock
+ Braddock Hills
+ Bradford Woods
+ Brentwood
+ Bridgeville
+ Carnegie
+ Castle Shannon
+ Chalfant
+ Cheswick
+ Churchill
+ Clairton city
+ Collier township
+ Coraopolis
+ Crafton
+ Crescent township
+ Dormont
+ Dravosburg
+ Duquesne city
+ East Deer township
+ East McKeesport
+ East Pittsburgh
+ Edgewood
+ Edgeworth
+ Elizabeth
+ Elizabeth township
+ Emsworth
+ Etna
+ Fawn township
+ Findlay township
+ Forest Hills
+ Forward township
+ Fox Chapel
+ Franklin Park
+ Frazer township
+ Glassport
+ Glenfield
+ Glen Osborne
+ Green Tree
+ Hampton township
+ Harmar township
+ Harrison township
+ Haysville
+ Heidelberg
+ Homestead
+ Indiana township
+ Ingram
+ Jefferson Hills
+ Kennedy township
+ Kilbuck township
+ Leet township
+ Leetsdale
+ Liberty
+ Lincoln
+ McCandless township
+ McDonald
+ McKeesport city
+ McKees Rocks
+ Marshall township
+ Millvale
+ Monroeville
+ Moon township
+ Mount Lebanon township
+ Mount Oliver
+ Munhall
+ Neville township
+ North Braddock
+ North Fayette township
+ North Versailles township
+ Oakdale
+ Oakmont
+ O'Hara township
+ Ohio township
+ Penn Hills township
+ Pennsbury Village
+ Pine township
+ Pitcairn
+ Pittsburgh city
+ Pleasant Hills
+ Plum
+ Port Vue
+ Rankin
+ Reserve township
+ Richland township
+ Robinson township
+ Ross township
+ Rosslyn Farms
+ Scott township
+ Sewickley
+ Sewickley Heights
+ Sewickley Hills
+ Shaler township
+ Sharpsburg
+ South Fayette township
+ South Park township
+ South Versailles township
+ Springdale
+ Springdale township
+ Stowe township
+ Swissvale
+ Tarentum
+ Thornburg
+ Trafford
+ Turtle Creek
+ Upper St. Clair township
+ Verona
+ Versailles
+ Wall
+ West Deer township
+ West Elizabeth
+ West Homestead
+ West Mifflin
+ West View
+ Whitaker
+ Whitehall
+ White Oak
+ Wilkins township
+ Wilkinsburg
+ Wilmerding
