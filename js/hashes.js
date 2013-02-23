@@ -325,13 +325,16 @@ $.ajax({
     success: function (data) {
         $.each(data, function (dataIndex, dataValue) {
             if (dataIndex > 0) {
-                entireDataSet[dataIndex] = dataValue; // populate main data structure
-                $.each(data[0], function (propertyIndex, propertyName) {
-                    if (propertyData[propertyName.toString()] == null) {
-                        propertyData[propertyName.toString()] = []; // create blank array to hold property data
-                    }
-                    propertyData[propertyName.toString()].push({ ID: dataIndex, Data: parseFloat(dataValue[propertyIndex]) });
-                });
+                var tractNumber = dataValue[dataValue.length-1];
+                if (tractNames[parseInt(tractNumber)] != null) { // only add tracts that exist in the tractNames hash table
+                    entireDataSet[dataIndex] = dataValue; // populate main data structure
+                    $.each(data[0], function (propertyIndex, propertyName) {
+                        if (propertyData[propertyName.toString()] == null) {
+                            propertyData[propertyName.toString()] = []; // create blank array to hold property data
+                        }
+                        propertyData[propertyName.toString()].push({ ID: dataIndex, Data: parseFloat(dataValue[propertyIndex]) });
+                    });
+                }
             }
         });
     }
