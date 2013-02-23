@@ -303,14 +303,14 @@ $.ajax({
     dataType: "json",
     async: false,
     success: function (data) {
-        $.each(data[0], function () {
-            propertyData[this.toString()] = []; // create blank array to hold property data
-        });
         $.each(data, function (dataIndex, dataValue) {
             if (dataIndex > 0) {
                 entireDataSet[dataIndex] = dataValue; // populate main data structure
                 $.each(data[0], function (propertyIndex, propertyName) {
-                    propertyData[propertyName.toString()].push({ ID: dataIndex, Data: dataValue[propertyIndex] });
+                    if (propertyData[propertyName.toString()] == null) {
+                        propertyData[propertyName.toString()] = []; // create blank array to hold property data
+                    }
+                    propertyData[propertyName.toString()].push({ ID: dataIndex, Data: parseFloat(dataValue[propertyIndex]) });
                 });
             }
         });
@@ -323,10 +323,6 @@ $.ajax({
     dataType: "json",
     async: false,
     success: function (data) {
-        /*$.each(data[0], function () {
-            propertyData[this.toString()] = []; // create blank array to hold property data
-        });*/ // doing this above
-
         $.each(data, function (dataIndex, dataValue) {
             if (dataIndex > 0) {
                 entireDataSet[dataIndex] = dataValue; // populate main data structure
@@ -334,7 +330,7 @@ $.ajax({
                     if (propertyData[propertyName.toString()] == null) {
                         propertyData[propertyName.toString()] = []; // create blank array to hold property data
                     }
-                    propertyData[propertyName.toString()].push({ ID: dataIndex, Data: dataValue[propertyIndex] });
+                    propertyData[propertyName.toString()].push({ ID: dataIndex, Data: parseFloat(dataValue[propertyIndex]) });
                 });
             }
         });
