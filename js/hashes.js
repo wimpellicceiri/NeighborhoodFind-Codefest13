@@ -287,24 +287,68 @@ var sortByData = function (a, b) {
     return ((x < y) ? -1 : ((x > y) ? 1 : 0));
 }
 
+var subdivFinished = false;
+var tractFinished = false;
+var finished = function () {
+    return subdivFinished && tractFinished;
+}
+
+
 var subdivData = [];
 var subdivDataURL = "http://api.census.gov/data/2011/acs5?key=76ed37dffda422d9b83fd9d277827451fb4ef1cc&get=B25058_001E,B25064_001E,B25077_001E,B07011_001E,B25010_001E,B25103_001E,B01002_001E,B23025_001E,B23025_003E,B23025_004E,B23025_005E&for=county+subdivision:*&in=state:42+county:003";
 var propertyData = {};
-$.getJSON(subdivDataURL, function (data) {
-    $.each(data[0], function(){
-        propertyData[this.toString()] = []; // create blank array to hold property data
-    });
-    $.each(data, function (dataIndex, dataValue) {
-        if (dataIndex > 0) {
-            subdivData[dataIndex] = dataValue; // populate main sub-division data structure
-            $.each(data[0], function (propertyIndex, propertyName) {
-                propertyData[propertyName.toString()].push({ ID: dataIndex, Data: dataValue[propertyIndex] });
-            });
-        }
-    });
-    // sort property data structures
-    $.each(propertyData, function () {
-        this.sort(sortByData);
-    });
+$.ajax({
+    url: subdivDataURL,
+    dataType: "json",
+    async: false,
+    success: function (data) {
+        $.each(data[0], function () {
+            propertyData[this.toString()] = []; // create blank array to hold property data
+        });
+        $.each(data, function (dataIndex, dataValue) {
+            if (dataIndex > 0) {
+                subdivData[dataIndex] = dataValue; // populate main sub-division data structure
+                $.each(data[0], function (propertyIndex, propertyName) {
+                    propertyData[propertyName.toString()].push({ ID: dataIndex, Data: dataValue[propertyIndex] });
+                });
+            }
+        });
+    }
 });
 
+var tractData = [];
+var tractDataURL = "http://api.census.gov/data/2011/acs5?key=76ed37dffda422d9b83fd9d277827451fb4ef1cc&get=B25058_001E,B25064_001E,B25077_001E,B07011_001E,B25010_001E,B25103_001E,B01002_001E,B23025_001E,B23025_003E,B23025_004E,B23025_005E&for=county+subdivision:*&in=state:42+county:003";
+$.ajax({
+    url: tractDataURL,
+    dataType: "json",
+    async: false,
+    success: function (data) {
+        $.each(data[0], function () {
+            propertyData[this.toString()] = []; // create blank array to hold property data
+        });
+        $.each(data, function (dataIndex, dataValue) {
+            if (dataIndex > 0) {
+                tractData[dataIndex] = dataValue; // populate main sub-division data structure
+                $.each(data[0], function (propertyIndex, propertyName) {
+                    propertyData[propertyName.toString()].push({ ID: dataIndex, Data: dataValue[propertyIndex] });
+                });
+            }
+        });
+    }
+});
+
+
+/*var loadData = function () {
+    $.when(subdivAJAX(), tractAJAX()).done(function () {
+        // sort property data structures
+        $.each(propertyData, function () {
+            this.sort(sortByData);
+        });
+    });
+}
+
+$.when(loadData()).done(function () {
+    alert(subdivData.length);
+});
+*/
+alert('hello');
