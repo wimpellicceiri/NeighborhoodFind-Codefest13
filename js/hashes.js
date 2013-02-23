@@ -351,4 +351,3 @@ $.when(loadData()).done(function () {
     alert(subdivData.length);
 });
 */
-alert('hello');
