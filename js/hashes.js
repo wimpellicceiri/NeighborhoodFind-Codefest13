@@ -294,8 +294,9 @@ var finished = function () {
 }
 
 
-var subdivData = [];
-var subdivDataURL = "http://api.census.gov/data/2011/acs5?key=76ed37dffda422d9b83fd9d277827451fb4ef1cc&get=B25058_001E,B25064_001E,B25077_001E,B07011_001E,B25010_001E,B25103_001E,B01002_001E,B23025_001E,B23025_003E,B23025_004E,B23025_005E&for=county+subdivision:*&in=state:42+county:003";
+var entireDataSet = [];
+var baseURL = "http://api.census.gov/data/2011/acs5?key=76ed37dffda422d9b83fd9d277827451fb4ef1cc&get=B25058_001E,B25064_001E,B25077_001E,B07011_001E,B25010_001E,B25103_001E,B01002_001E,B23025_001E,B23025_003E,B23025_004E,B23025_005E";
+var subdivDataURL = baseURL + "&for=county+subdivision:*&in=state:42+county:003";
 var propertyData = {};
 $.ajax({
     url: subdivDataURL,
@@ -307,7 +308,7 @@ $.ajax({
         });
         $.each(data, function (dataIndex, dataValue) {
             if (dataIndex > 0) {
-                subdivData[dataIndex] = dataValue; // populate main sub-division data structure
+                entireDataSet[dataIndex] = dataValue; // populate main data structure
                 $.each(data[0], function (propertyIndex, propertyName) {
                     propertyData[propertyName.toString()].push({ ID: dataIndex, Data: dataValue[propertyIndex] });
                 });
@@ -316,20 +317,23 @@ $.ajax({
     }
 });
 
-var tractData = [];
-var tractDataURL = "http://api.census.gov/data/2011/acs5?key=76ed37dffda422d9b83fd9d277827451fb4ef1cc&get=B25058_001E,B25064_001E,B25077_001E,B07011_001E,B25010_001E,B25103_001E,B01002_001E,B23025_001E,B23025_003E,B23025_004E,B23025_005E&for=county+subdivision:*&in=state:42+county:003";
+var tractDataURL = baseURL + "&for=tract:*&in=state:42+county:003";
 $.ajax({
     url: tractDataURL,
     dataType: "json",
     async: false,
     success: function (data) {
-        $.each(data[0], function () {
+        /*$.each(data[0], function () {
             propertyData[this.toString()] = []; // create blank array to hold property data
-        });
+        });*/ // doing this above
+
         $.each(data, function (dataIndex, dataValue) {
             if (dataIndex > 0) {
-                tractData[dataIndex] = dataValue; // populate main sub-division data structure
+                entireDataSet[dataIndex] = dataValue; // populate main data structure
                 $.each(data[0], function (propertyIndex, propertyName) {
+                    if (propertyData[propertyName.toString()] == null) {
+                        propertyData[propertyName.toString()] = []; // create blank array to hold property data
+                    }
                     propertyData[propertyName.toString()].push({ ID: dataIndex, Data: dataValue[propertyIndex] });
                 });
             }
@@ -337,6 +341,10 @@ $.ajax({
     }
 });
 
+// sort property data structures
+$.each(propertyData, function () {
+    this.sort(sortByData);
+});
 
 /*var loadData = function () {
     $.when(subdivAJAX(), tractAJAX()).done(function () {
