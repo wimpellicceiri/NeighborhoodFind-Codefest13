@@ -1,4 +1,4 @@
-﻿var subdivNames = [];
+﻿var subdivNames = {};
 subdivNames[00724] = "Aleppo township";
 subdivNames[03320] = "Aspinwall";
 subdivNames[03608] = "Avalon";
@@ -130,7 +130,7 @@ subdivNames[85184] = "Wilkins township";
 subdivNames[85188] = "Wilkinsburg";
 subdivNames[85496] = "Wilmerding";
 
-var tractNames = [];
+var tractNames = {};
 tractNames[010300] = "Bluff";
 tractNames[020100] = "Central Business District";
 tractNames[020300] = "Strip District";
@@ -269,13 +269,13 @@ tractNames[981200] = "North Shore";
 tractNames[981800] = "Lincoln-Lemington-Belmar";
 tractNames[982200] = "North Oakland";
 
-var filterProperties = [];
+var filterProperties = {};
 filterProperties["B25058_001E"] = "";
 filterProperties["B25064_001E"] = "Median Gross Rent (Dollars)";
 filterProperties["B25077_001E"] = "Median Value (Dollars) for Owner-Occupied Housing Units";
 filterProperties["B07011_001E"] = "Median Income by Geographical Mobility in the Past Year for Current Residence in the U.S.";
 filterProperties["B25010_001E"] = "Average Household Size of Occupied Housing Units by Tenure";
-filterProperties["B25103_001E"] = "MORTGAGE STATUS BY MEDIAN REAL ESTATE TAXES PAID (DOLLARS)";
+filterProperties["B25103_001E"] = "Mortgage Status by Median Real Estate Taxes Paid (DOLLARS)";
 filterProperties["B01002_001E"] = "Median Age by Sex";
 filterProperties["B23025_003E"] = "Total Labor Force";
 filterProperties["B23025_004E"] = "Employed";
@@ -293,6 +293,8 @@ var finished = function () {
     return subdivFinished && tractFinished;
 }
 
+var filterIndexArray = [];
+
 var index = 0;
 var entireDataSet = [];
 var baseURL = "http://api.census.gov/data/2011/acs5?key=76ed37dffda422d9b83fd9d277827451fb4ef1cc&get=B25058_001E,B25064_001E,B25077_001E,B07011_001E,B25010_001E,B25103_001E,B01002_001E,B23025_001E,B23025_003E,B23025_004E,B23025_005E";
@@ -306,11 +308,18 @@ $.ajax({
         $.each(data, function (dataIndex, dataValue) {
             if (dataIndex > 0) {
                 entireDataSet[dataIndex] = dataValue; // populate main data structure
+                filterIndexArray.push(dataIndex);
+
                 $.each(data[0], function (propertyIndex, propertyName) {
                     if (propertyData[propertyName.toString()] == null) {
                         propertyData[propertyName.toString()] = []; // create blank array to hold property data
                     }
-                    propertyData[propertyName.toString()].push({ ID: dataIndex, Data: parseFloat(dataValue[propertyIndex]) });
+                    if (dataValue[propertyIndex] != "null") {
+                        propertyData[propertyName.toString()].push({ ID: dataIndex, Data: parseFloat(dataValue[propertyIndex]) });
+                    }
+                    else {
+                        propertyData[propertyName.toString()].push({ ID: dataIndex, Data: "null" });
+                    }
                 });
                 index = dataIndex;
             }
@@ -329,11 +338,19 @@ $.ajax({
                 var tractNumber = dataValue[dataValue.length-1];
                 if (tractNames[parseInt(tractNumber)] != null) { // only add tracts that exist in the tractNames hash table
                     entireDataSet[dataIndex + index] = dataValue; // populate main data structure
+                    filterIndexArray.push(dataIndex + index);
+
                     $.each(data[0], function (propertyIndex, propertyName) {
                         if (propertyData[propertyName.toString()] == null) {
                             propertyData[propertyName.toString()] = []; // create blank array to hold property data
                         }
-                        propertyData[propertyName.toString()].push({ ID: dataIndex + index, Data: parseFloat(dataValue[propertyIndex]) });
+
+                        if (dataValue[propertyIndex] != "null") {
+                            propertyData[propertyName.toString()].push({ ID: dataIndex + index, Data: parseFloat(dataValue[propertyIndex]) });
+                        }
+                        else {
+                            propertyData[propertyName.toString()].push({ ID: dataIndex + index, Data: "null" });
+                        }
                     });
                 }
             }
