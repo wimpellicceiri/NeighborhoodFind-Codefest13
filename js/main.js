@@ -1,6 +1,8 @@
 _.templateSettings = {
-    interpolate: /\{\{([\s\S]+?)\}\}/g
-};
+    interpolate: /\{\{(.+?)\}\}/g,      // print value: {{ value_name }}
+    evaluate: /\{%([\s\S]+?)%\}/g,   // excute code: {% code_to_execute %}
+    escape: /\{%-([\s\S]+?)%\}/g
+}; // escape HTML: {%- <script> %} prints &lt;script&gt;
 
 function getMaxValue(jsonObj)
 {
@@ -138,7 +140,7 @@ $(function ()
             var isSuperSafeNeighborhood = superSafeNeighborhoods[subdivOrTractIndexer] != null;
             var schoolDistrict = schoolDistricts[subdivOrTractIndexer];
             var isAwesomeSchoolDistrict = schoolDistrict != null;
-            neighborhoodNames.push({ Name: name, SuperSafeNeighborhood: isSuperSafeNeighborhood, AwesomeSchoolDistrict: isAwesomeSchoolDistrict });
+            neighborhoodNames.push({ Name: name, ID: subdivOrTractIndexer, SuperSafeNeighborhood: isSuperSafeNeighborhood, AwesomeSchoolDistrict: isAwesomeSchoolDistrict });
         });
 
         $('#divLandingContentHolder').append("<div id='divLandingContent'></div>");
@@ -147,7 +149,7 @@ $(function ()
             return ((a.Name < b.Name) ? -1 : ((a.Name > b.Name) ? 1 : 0));
         });
         $.each(neighborhoodNames, function () {
-            $('#divLandingContent').append(landingTemplate({ NeighborhoodName: this.Name, NeighborhoodData: 'Testing' }));
+            $('#divLandingContent').append(landingTemplate({ NeighborhoodName: this.Name, NeighborhoodData: 'Testing', NeighborhoodID: this.ID }));
         });
 
         $('#divLandingContent').accordion(
@@ -168,6 +170,17 @@ $(function ()
         });    
 
         $('#divLandingPage').show();
+
+        $.each($('div[id*=divRSS]'), function (index, Element) {
+            $(Element).parent().parent().parent().prev().click(function () {
+                /*$(Element).FeedEk({
+                    FeedUrl: 'http://rss.cnn.com/rss/edition.rss',
+                    MaxCount: 5,
+                    ShowDesc: true,
+                    ShowPubDate: true
+                });*/
+            });
+        });
     });
 
     $('.address-button').click(function ()

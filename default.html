@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
     <link href="css/smoothness/jquery-ui-1.10.1.custom.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/FeedEk.css">
     <link rel="stylesheet" href="css/main.css">
 
     <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
@@ -139,6 +140,8 @@
                 </div>
             </div>
         </div>
+
+
     </div>
     <script type="text/html" id="landingTemplate">
       <h3>{{ NeighborhoodName }}</h3>
@@ -147,19 +150,19 @@
         <ul class="thumbnails">
           <li class="span3">
             <div class="thumbnail" id="divFlickr">
-              
+              Demographic Data
             </div>
           </li>
           
           <li class="span3">
             <div class="thumbnail">
-              {{ NeighborhoodData }}
+              Zillow Widget
             </div>
           </li>
           
           <li class="span3">
             <div class="thumbnail">
-              {{ NeighborhoodData }}
+              News Feed
             </div>
           </li>
         </ul>
@@ -167,19 +170,19 @@
         <ul class="thumbnails">
           <li class="span3">
             <div class="thumbnail">
-              {{ NeighborhoodData }}
+              CityGrid Data
             </div>
           </li>
           
           <li class="span3">
             <div class="thumbnail">
-              {{ NeighborhoodData }}
+              <iframe align="center" src="http://www.flickr.com/slideShow/index.gne?group_id=&user_id=&set_id=&tags={{ NeighborhoodName }},Pittsburgh" frameBorder="0" height="300" width="260" scrolling="no"></iframe>
             </div>
           </li>
           
           <li class="span3">
-            <div class="thumbnail">
-              {{ NeighborhoodData }}
+            <div id="divRSS{{ NeighborhoodID }}" class="thumbnail">
+                Twitter Feed
             </div>
           </li>
         </ul>
@@ -191,6 +194,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/underscore-min.js"></script>
     <script src="js/hashes.js"></script>
+    <script src="js/FeedEk.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
