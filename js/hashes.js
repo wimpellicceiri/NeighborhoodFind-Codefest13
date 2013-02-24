@@ -1,4 +1,120 @@
-﻿var subdivOrTractNames = {};
+﻿var superSafeNeighborhoods = {}; 
+superSafeNeighborhoods["06064"] = "";
+superSafeNeighborhoods["15216"] = "";
+superSafeNeighborhoods["23000"] = "";
+superSafeNeighborhoods["27120"] = "";
+superSafeNeighborhoods["32328"] = "";
+superSafeNeighborhoods["45900"] = "";
+superSafeNeighborhoods["51696"] = "";
+superSafeNeighborhoods["60272"] = "";
+superSafeNeighborhoods["64528"] = "";
+superSafeNeighborhoods["69376"] = "";
+superSafeNeighborhoods["69400"] = "";
+superSafeNeighborhoods["69416"] = "";
+superSafeNeighborhoods["79274"] = "";
+superSafeNeighborhoods["070300"] = "";
+superSafeNeighborhoods["070500"] = "";
+superSafeNeighborhoods["070600"] = "";
+superSafeNeighborhoods["070800"] = "";
+superSafeNeighborhoods["070900"] = "";
+superSafeNeighborhoods["110200"] = "";
+superSafeNeighborhoods["110600"] = "";
+superSafeNeighborhoods["140100"] = "";
+superSafeNeighborhoods["140200"] = "";
+superSafeNeighborhoods["140300"] = "";
+superSafeNeighborhoods["140400"] = "";
+superSafeNeighborhoods["140500"] = "";
+superSafeNeighborhoods["140600"] = "";
+superSafeNeighborhoods["140800"] = "";
+superSafeNeighborhoods["141000"] = "";
+superSafeNeighborhoods["141100"] = "";
+superSafeNeighborhoods["141300"] = "";
+superSafeNeighborhoods["141400"] = "";
+superSafeNeighborhoods["980100"] = "";
+superSafeNeighborhoods["980300"] = "";
+superSafeNeighborhoods["980500"] = "";
+
+var superSchoolDistricts = [
+    "Bethel Park",
+    "Fox Chapel Area",
+    "Hampton",
+    "Mt. Lebanon",
+    "North Allegheny",
+    "North Hills",
+    "Pine-Richland",
+    "Plum",
+    "Quaker Valley",
+    "Upper St. Clair"
+];
+
+var schoolDistricts = {};
+/*schoolDistricts[""] = "Allegheny Valley";
+schoolDistricts[""] = "Avonworth";
+schoolDistricts[""] = "Baldwin-Whitehall";*/
+schoolDistricts["06064"] = "Bethel Park";
+/*schoolDistricts[""] = "Brentwood";
+schoolDistricts[""] = "Carlynton";
+schoolDistricts[""] = "Chartiers Valley";
+schoolDistricts[""] = "Clairton";
+schoolDistricts[""] = "Cornell";
+schoolDistricts[""] = "Deer Lakes";
+schoolDistricts[""] = "Duquesne Area";
+schoolDistricts[""] = "East Allegheny";
+schoolDistricts[""] = "Elizabeth-Forward";*/
+schoolDistricts["07000"] = "Fox Chapel Area";
+schoolDistricts["36808"] = "Fox Chapel Area";
+schoolDistricts["69776"] = "Fox Chapel Area";
+schoolDistricts["56384"] = "Fox Chapel Area";
+schoolDistricts["03320"] = "Fox Chapel Area";
+schoolDistricts["27120"] = "Fox Chapel Area";
+//schoolDistricts[""] = "Gateway";
+schoolDistricts["32328"] = "Hampton";
+/*schoolDistricts[""] = "Highlands";
+schoolDistricts[""] = "Keystone Oaks";
+schoolDistricts[""] = "McKeesport Area";
+schoolDistricts[""] = "Montour";
+schoolDistricts[""] = "Moon Area";*/
+schoolDistricts["51696"] = "Mt. Lebanon";
+schoolDistricts["08064"] = "North Allegheny";
+schoolDistricts["27552"] = "North Allegheny";
+schoolDistricts["47696"] = "North Allegheny";
+schoolDistricts["45900"] = "North Allegheny";
+schoolDistricts["66264"] = "North Hills";
+schoolDistricts["84144"] = "North Hills";
+/*schoolDistricts[""] = "Northgate";
+schoolDistricts[""] = "Penn Hills";*/
+schoolDistricts["60272"] = "Pine-Richland";
+schoolDistricts["64528"] = "Pine-Richland";
+/*schoolDistricts[""] = "Pittsburgh";
+schoolDistricts[""] = "Plum";*/
+schoolDistricts["00724"] = "Quaker Valley";
+schoolDistricts["05216"] = "Quaker Valley";
+schoolDistricts["22576"] = "Quaker Valley";
+schoolDistricts["29592"] = "Quaker Valley";
+schoolDistricts["33312"] = "Quaker Valley";
+schoolDistricts["42368"] = "Quaker Valley";
+schoolDistricts["29732"] = "Quaker Valley";
+schoolDistricts["69376"] = "Quaker Valley";
+schoolDistricts["69400"] = "Quaker Valley";
+schoolDistricts["69416"] = "Quaker Valley";
+/*schoolDistricts[""] = "Riverview";
+schoolDistricts[""] = "Shaler Area";
+schoolDistricts[""] = "South Allegheny";
+schoolDistricts[""] = "South Fayette";
+schoolDistricts[""] = "South Park";
+schoolDistricts[""] = "Steel Valley";
+schoolDistricts[""] = "Sto-Rox";*/
+schoolDistricts["79274"] = "Upper St. Clair";
+/*schoolDistricts[""] = "West Allegheny";
+schoolDistricts[""] = "West Jefferson";
+schoolDistricts[""] = "West Mifflin Area";
+schoolDistricts[""] = "Wilkinsburg";
+schoolDistricts[""] = "Woodland Hills";
+schoolDistricts[""] = "Fort Cherry";
+schoolDistricts[""] = "Penn-Trafford";*/
+
+
+var subdivOrTractNames = {};
 // subdivs
 subdivOrTractNames["00724"] = "Aleppo township";
 subdivOrTractNames["03320"] = "Aspinwall";
@@ -94,7 +210,7 @@ subdivOrTractNames["61536"] = "Plum";
 subdivOrTractNames["62320"] = "Port Vue";
 subdivOrTractNames["63408"] = "Rankin";
 subdivOrTractNames["64240"] = "Reserve township";
-subdivOrTractNames["64528"] = "Richland township";
+subdivOrTractNames["64528"] = "Richland township"; 
 subdivOrTractNames["65352"] = "Robinson township";
 subdivOrTractNames["66264"] = "Ross township";
 subdivOrTractNames["66320"] = "Rosslyn Farms";
@@ -435,6 +551,8 @@ var finished = function () {
 }
 
 var filterIndexArray = [];
+var notTopSchoolIndexArray = [];
+var notTopSafeIndexArray = [];
 
 var index = 0;
 var entireDataSet = [];
@@ -448,9 +566,15 @@ $.ajax({
     success: function (data) {
         $.each(data, function (dataIndex, dataValue) {
             if (dataIndex > 0) {
-                if (dataValue[dataValue.length - 1] != "61000") { // DO NOT INCLUDE PITTSBURGH CITY
+                var subdivNumber = dataValue[dataValue.length - 1];
+                if (subdivNumber != "61000") { // DO NOT INCLUDE PITTSBURGH CITY
                     entireDataSet[dataIndex] = dataValue; // populate main data structure
                     filterIndexArray.push(dataIndex);
+                    if (schoolDistricts[subdivNumber] == null)
+                        notTopSchoolIndexArray.push(dataIndex);
+
+                    if (superSafeNeighborhoods[subdivNumber] == null)
+                        notTopSafeIndexArray.push(dataIndex);
 
                     $.each(data[0], function (propertyIndex, propertyName) {
                         if (propertyData[propertyName.toString()] == null) {
@@ -482,6 +606,11 @@ $.ajax({
                 if (tractNames[parseInt(tractNumber)] != null) { // only add tracts that exist in the tractNames hash table
                     entireDataSet[dataIndex + index] = dataValue; // populate main data structure
                     filterIndexArray.push(dataIndex + index);
+                    if (schoolDistricts[tractNumber] == null)
+                        notTopSchoolIndexArray.push(dataIndex);
+
+                    if (superSafeNeighborhoods[tractNumber] == null)
+                        notTopSafeIndexArray.push(dataIndex);
 
                     $.each(data[0], function (propertyIndex, propertyName) {
                         if (propertyData[propertyName.toString()] == null) {
