@@ -47,6 +47,29 @@ $(function ()
                 }
             }
         });
+
+        // filter out schools
+        if ($('#btnTopSchools').hasClass('btn-success')) {
+            $.each(notTopSchoolIndexArray, function (index, Element) {
+                if ($.inArray(Element, filteredObjArray) != -1) { // if it is not in the list of top schools, get rid of it
+                    if (filteredObjArray.indexOf(Element) == -1)
+                        alert(Element);
+                    filteredObjArray.splice(filteredObjArray.indexOf(Element), 1);
+                }
+            });
+        }
+
+        // filter out on safety
+        if ($('#btnOverTheTopSafety').hasClass('btn-success')) {
+            $.each(notTopSafeIndexArray, function (index, Element) {
+                if ($.inArray(Element, filteredObjArray) != -1) { // if it is not in the list of top safe neighborhoods, get rid of it
+                    if (filteredObjArray.indexOf(Element) == -1)
+                        alert(Element);
+                    filteredObjArray.splice(filteredObjArray.indexOf(Element), 1);
+                }
+            });
+        }
+
         setFilteredCount(filteredObjArray.length);
     }
 
@@ -105,25 +128,26 @@ $(function ()
 
     var landingTemplate = _.template($('#landingTemplate').html());
 
-    $('#btnSearch').click(function ()
-    {
+    $('#btnSearch').click(function () {
         $('#divHomePage').hide();
         var neighborhoodNames = [];
-        $.each(filteredObjArray, function ()
-        {
+        $.each(filteredObjArray, function () {
             var data = entireDataSet[this];
             var subdivOrTractIndexer = data[data.length - 1];
             var name = subdivOrTractNames[subdivOrTractIndexer];
-            neighborhoodNames.push(name);
-            //.append(landingTemplate({ NeighborhoodName: 'Greentree', NeighborhoodData: 'Testing2' }));
+            var isSuperSafeNeighborhood = superSafeNeighborhoods[subdivOrTractIndexer] != null;
+            var schoolDistrict = schoolDistricts[subdivOrTractIndexer];
+            var isAwesomeSchoolDistrict = schoolDistrict != null;
+            neighborhoodNames.push({ Name: name, SuperSafeNeighborhood: isSuperSafeNeighborhood, AwesomeSchoolDistrict: isAwesomeSchoolDistrict });
         });
 
         $('#divLandingContentHolder').append("<div id='divLandingContent'></div>");
 
-        neighborhoodNames.sort();
-        $.each(neighborhoodNames, function ()
-        {
-            $('#divLandingContent').append(landingTemplate({ NeighborhoodName: this, NeighborhoodData: 'Testing' }));
+        neighborhoodNames.sort(function (a, b) {
+            return ((a.Name < b.Name) ? -1 : ((a.Name > b.Name) ? 1 : 0));
+        });
+        $.each(neighborhoodNames, function () {
+            $('#divLandingContent').append(landingTemplate({ NeighborhoodName: this.Name, NeighborhoodData: 'Testing' }));
         });
 
         $('#divLandingContent').accordion();
@@ -131,35 +155,24 @@ $(function ()
         $('#divLandingPage').show();
     });
 
-    /*$( "#slider1" ).slider({
-    range: true,
-    min: 0,
-    max: 500,
-    values: [ 75, 300 ],
-    slide: function( event, ui ) {
-    $( "#amount1" ).html( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-    }
-    });
-    $( "#amount1" ).html( "$" + $( "#slider1" ).slider( "values", 0 ) +
-    " - $" + $( "#slider1" ).slider( "values", 1 ) );
-    
-    $( "#slider2" ).slider({
-    range: true,
-    min: 0,
-    max: 120000,
-    values: [ 50000, 100000 ],
-    step: 100,
-    slide: function( event, ui ) {
-    $( "#amount2" ).html( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-    }
-    });
-    $( "#amount2" ).html( "$" + $( "#slider2" ).slider( "values", 0 ) +
-    " - $" + $( "#slider2" ).slider( "values", 1 ) );*/
-
     $('.address-button').click(function ()
     {
         $(this).addClass("btn-success").siblings().removeClass("btn-success");
     });
 
     $("[rel='tooltip']").tooltip();
+
+    $('#spnSchoolCount').html(superSchoolDistricts.length);
+    $('#btnAllSchools').click(function () {
+        filterFunction();
+    });
+    $('#btnAllNeighborhoods').click(function () {
+        filterFunction();
+    });
+    $('#btnTopSchools').click(function () {
+        filterFunction();
+    });
+    $('#btnOverTheTopSafety').click(function () {
+        filterFunction();
+    });
 });
