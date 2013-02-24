@@ -21,21 +21,22 @@
             <p>Use this tool to filter neighborhoods using census data.</p>
         </div>
 
-        <div class="row" style="text-align:center">
-            <span style="border: 0; color: #f6931f; font-weight: bold;">Results: </span><span id="spnFilteredHoods"></span> of <span id="spnTotalHoods"></span>
+        <div class="navbar-fixed-bottom" style="text-align:center; background-color:#333333">
+            <span style="border: 0; color: #f6931f; font-weight: bold;">Results: </span><span style="color: #ffffff;"><span id="spnFilteredHoods"></span> of <span id="spnTotalHoods"></span></span>
         </div>
     
         <div id="divHomePage">
             <div id="divFilters">
             <h3 class="header-centered">Neighborhood Filters</h3>
-        
+            <hr />
+            
             <script type="text/html" id="sliderFilterTemplate">
                 <div id="filter{{ PropertyID }}" class="row filter-row">
                     <div class="span1">
                         <input id="chkFilter{{ PropertyID }}" type="checkbox" rel="tooltip" data-toggle="tooltip" data-original-title="Enable/disable this filter"></input>
                     </div>       
                     <div class="span2">            
-                        <span class="pull-right"><b>{{ PropertyName }}:</b></span>
+                        <span class="pull-center"><b>{{ PropertyName }}:</b></span>
                     </div>
           
                     <div class="span3">
@@ -43,7 +44,7 @@
                     </div>
           
                     <div class="span6">
-                        <div id="slider{{ PropertyID }}" data-PropertyID="{{ PropertyID }}"></div>
+                        <div id="slider{{ PropertyID }}" data-PropertyID="{{ PropertyID }}" searchEnabled="false"></div>
                     </div>
                 </div>
 
@@ -95,7 +96,7 @@
             <hr />
           </div>
       
-            <div id="divSearchButton" class="row">
+            <div id="divSearchButton" class="row" style="padding-bottom:60px;">
                 <div class="span4 offset4">
                     <button id="btnSearch" class="btn btn-primary btn-large btn-block" type="button">Search</button>
                 </div>
