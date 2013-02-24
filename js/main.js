@@ -150,7 +150,22 @@ $(function ()
             $('#divLandingContent').append(landingTemplate({ NeighborhoodName: this.Name, NeighborhoodData: 'Testing' }));
         });
 
-        $('#divLandingContent').accordion();
+        $('#divLandingContent').accordion(
+        {
+          heightStyle:"content",
+          beforeActivate: function(event, ui)
+          {
+            var currentResult = $(this);
+            $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags=" & this.toString() & "&tagmode=all&format=json", function(data)
+            {
+              $.each(data.items, function(i,item)
+              {
+                $("<img/>").attr("src", item.media.m).appendTo(currentResult);
+                if ( i == 3 ) return false;
+              });
+            });  
+          }
+        });    
 
         $('#divLandingPage').show();
     });

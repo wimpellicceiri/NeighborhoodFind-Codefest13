@@ -71,6 +71,7 @@
                 </div>
             </div>
         
+            <hr />
         
             <div id="filter3" class="row">
               <div class="span1">
@@ -140,8 +141,50 @@
         </div>
     </div>
     <script type="text/html" id="landingTemplate">
-        <h3>{{ NeighborhoodName }}</h3>
-        <div>{{ NeighborhoodData }}</div>
+      <h3>{{ NeighborhoodName }}</h3>
+      
+      <div>
+        <ul class="thumbnails">
+          <li class="span3">
+            <div class="thumbnail" id="divFlickr">
+              
+            </div>
+          </li>
+          
+          <li class="span3">
+            <div class="thumbnail">
+              {{ NeighborhoodData }}
+            </div>
+          </li>
+          
+          <li class="span3">
+            <div class="thumbnail">
+              {{ NeighborhoodData }}
+            </div>
+          </li>
+        </ul>
+        
+        <ul class="thumbnails">
+          <li class="span3">
+            <div class="thumbnail">
+              {{ NeighborhoodData }}
+            </div>
+          </li>
+          
+          <li class="span3">
+            <div class="thumbnail">
+              {{ NeighborhoodData }}
+            </div>
+          </li>
+          
+          <li class="span3">
+            <div class="thumbnail">
+              {{ NeighborhoodData }}
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
     </script>
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jquery-ui-1.10.1.custom.min.js"></script>
